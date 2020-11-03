@@ -1,0 +1,20 @@
+<h1><%= @restaurant.name %></h1>
+<p><%= @restaurant.category %></p>
+<h2><strong>Visit us: </strong><%= @restaurant.address %></h2>
+<h2><strong>Reach us at: </strong><%= @restaurant.phone_number %></h2>
+
+<%= link_to 'more...', restaurant_path(@restaurant),
+  class: 'btn btn-info' %>
+<%= link_to 'review...', new_restaurant_review_path(@restaurant),
+  class: 'btn btn-success' %>
+
+<br><hr>
+
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item">
+      <h1><%= review.rating %></h1>
+      <p><%= review.content %></p>
+    </li>
+  <% end %>
+</ul>
